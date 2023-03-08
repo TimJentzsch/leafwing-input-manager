@@ -109,7 +109,7 @@ impl<A: Actionlike> Plugin for InputManagerPlugin<A> {
                         .with_run_criteria(run_if_enabled::<A>)
                         .label(InputManagerSystem::Update)
                         .after(InputSystem)
-                        .after(bevy_egui::EguiSystem::ProcessInput),
+                        .after(bevy_egui::EguiSet::ProcessInput),
                 );
                 #[cfg(not(feature = "egui"))]
                 app.add_system_to_stage(
